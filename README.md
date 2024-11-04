@@ -42,6 +42,8 @@ Product weight is also included if it is found and not empty.
 
 - Install requirements using:
     `pip install -r requirements.txt`
+- Add API Key to the `.env` file:
+    `API_KEY=<you api key>`
 - Run the application using:
   `uvicorn app.main:app --reload`
 - Use the application with calling:
