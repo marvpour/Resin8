@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, File, UploadFile
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from app.middleware.processPrompt import promptResponse
+from app.middleware.processPrompt import prompt_response
 import json
 
 app = FastAPI()
@@ -31,7 +31,7 @@ async def process_form(
         formatted_json_string = "Invalid JSON file"
 
     # Pass the formatted JSON string to the promptResponse function
-    newResponse = promptResponse(formatted_json_string)
+    newResponse = prompt_response(formatted_json_string)
 
     # Purge (delete) the uploaded file content after processing
     await json_file.close()
