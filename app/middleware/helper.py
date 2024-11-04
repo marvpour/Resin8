@@ -23,8 +23,6 @@ def execute_llm(prompt):
         }
         response = requests.request("POST", LLM_URL, json=payload, headers=HEADERS)
         dict_response = json.loads(response.text)
-        print(dict_response['choices'][0]['message']['content'])
-        print('==============')
         return dict_response['choices'][0]['message']['content'].lower()
     except Exception as e:
         print(f'Error executing LLM. reason: {e}')
