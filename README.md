@@ -11,8 +11,6 @@ You will be provided with a JSON file along with this code. Upon uploading the J
 
 ### 3. This workflow should dynamically scrape data from the internet about the described product in real-time.
 
----
-
 ## Optional Features:
 
 ### 4. If the `price` field of a product object is `0`:
@@ -22,36 +20,29 @@ You will be provided with a JSON file along with this code. Upon uploading the J
 ### 5. If possible, find the product's weight and:
    - Add it to a new field called `"product_weight"`.
 
-# FastAPI Application
+---
 
-This is a FastAPI application that demonstrates basic usage.
+# Proposed Solution
 
-## Installation
+## LLM API
+I am using Perplexity API to get the latest info about given products. To test the application, you can set the `API_KEY` in the `.env` file and that should enable the LLM call.
+Reason for choosing Perplexity API is retrieving information from the latest data found online, which is the purpose of this problem as I understand it.
 
-### 1. Clone the repository:
+## Prompts
+I designed two different LLM calls, one for `augmented_data` field and one for `price` and `weight` fields.
+Default prompt defined in the script for each call should give us a clear response, but as in LLM's nature, it may function 100% of times as expected.
 
-```bash
-git clone https://github.com/OAkinbode/ProductAugApp.git
-cd ProductAugApp
+## Price and Weight
+To solve this, I forced the LLM to respond in a specific format, so that I can get the data easier. The `price` field will be there if found, or `priceUSD` is `0`.
+Product weight is also included if it is found and not empty.
 
-```
+---
 
-### 2. Install all dependencies using either of the following:
+## How to Run the application on Mac
 
-pip install -r requirements.txt
-
-or
-
-pip3 install -r requirements.txt
-
-### 3. Run the application using for mac
-
-uvicorn app.main:app --reload
-
-### 3. Run the application using for windows
-
-python.exe -m uvicorn.main app.main:app --reload
-
-### 4. Use application in browser
-
-visit http://localhost:8000
+- Install requirements using:
+    `pip install -r requirements.txt`
+- Run the application using:
+  `uvicorn app.main:app --reload`
+- Use the application with calling:
+    `http://localhost:8000`
