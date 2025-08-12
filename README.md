@@ -1,4 +1,4 @@
-# Problem Statement
+# LLM-Powered Product Data Augmentation & Enrichment Pipeline
 
 You will be provided with a JSON file along with this code. Upon uploading the JSON file, the middleware simply returns the file. Your task is to write code in the middleware file (`processPrompt`) that uses publicly available LLM APIs (e.g., LLama, OpenAI, or other open-source models like those from Huggingface.io) to perform the following:
 
